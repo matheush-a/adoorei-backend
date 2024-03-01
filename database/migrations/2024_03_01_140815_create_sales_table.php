@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('sales', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('amount');
+            $table->boolean('is_active')->default(true);
             $table->timestamps();
         });
     }
