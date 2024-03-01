@@ -16,9 +16,14 @@ class Sale extends Model
 
     public function byId($id)
     {
-        return $this->find($id);
+        return $this->with('productSales')->find($id);
     }
 
+    public function cancel($id)
+    {
+        $this->whereId($id)->update(['is_active' => 0]);
+    }
+ 
     public function productSales() 
     {
         return $this->hasMany(ProductSale::class);

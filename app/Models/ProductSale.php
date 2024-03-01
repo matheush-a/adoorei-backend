@@ -9,6 +9,13 @@ class ProductSale extends Model
 {
     use HasFactory;
 
+    public $timestamps = true;
+
+    public function store($data)
+    {
+        return $this->insert($data);
+    }
+
     public function sale() 
     {
         return $this->belongsTo(Sale::class);
