@@ -11,7 +11,7 @@ class ProductTest extends TestCase
 {
     use DatabaseTransactions;
 
-    public function testClassConstructor()
+    public function test_class_constructor()
     {
         $attributes = [
             'name' => 'Celular Teste',
@@ -26,7 +26,7 @@ class ProductTest extends TestCase
         $this->assertSame('Descrição Teste', $product->description);
     }
 
-    public function testProductsIndexing()
+    public function test_products_indexing()
     {
         $response = $this->get('/product');
         $response->assertStatus(Response::HTTP_OK);
