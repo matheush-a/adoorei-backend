@@ -12,7 +12,7 @@ class Validator
         $validator = FacadeValidator::make($request->all(), $data);
 
         if($validator->fails()) {
-            response()->json($validator->errors(), Response::HTTP_UNPROCESSABLE_ENTITY)->send();
+            return $validator->errors();
             exit();
         }
     }
