@@ -23,12 +23,16 @@ class SaleController extends Controller
 
     public function addProducts(Request $request)
     {
-        $this->validator->validate($request, [
+        $validation = $this->validator->validate($request, [
             'products' => ['required', 'array'],
             'products.*.product_id'=> ['required', 'numeric', 'exists:products,id'],
             'products.*.amount'=> ['required', 'numeric', 'min:1'],
             'products.*.sale_id'=> ['required', 'numeric', 'exists:sales,id'],
         ]);
+
+        if ($validation) {
+            return response()->json($validation, Response::HTTP_UNPROCESSABLE_ENTITY);
+        }
 
         $this->saleService->addProducts($request->products);
 
@@ -37,9 +41,13 @@ class SaleController extends Controller
 
     public function cancel(Request $request) 
     {
-        $this->validator->validate($request, [
+        $validation = $this->validator->validate($request, [
             'id' => ['required', 'numeric', 'exists:sales'],
         ]);
+
+        if ($validation) {
+            return response()->json($validation, Response::HTTP_UNPROCESSABLE_ENTITY);
+        }
 
         $this->sale->cancel($request->id);
 
@@ -58,13 +66,17 @@ class SaleController extends Controller
 
     public function store(Request $request)
     {
-        $this->validator->validate($request, [
+        $validation = $this->validator->validate($request, [
             'amount' => ['required', 'numeric'],
             'products' => ['required', 'array'],
             'products.*.product_id'=> ['required', 'numeric', 'exists:products,id'],
             'products.*.amount'=> ['required', 'numeric', 'min:1'],
         ]);
-        
+
+        if ($validation) {
+            return response()->json($validation, Response::HTTP_UNPROCESSABLE_ENTITY);
+        }
+  
         $this->saleService->store($request);
 
         return response()->json('Sale successfully created.', Response::HTTP_CREATED);
