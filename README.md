@@ -1,3 +1,67 @@
+## Adoorei Backend Test
+
+Este é um projeto Laravel desenvolvido utilizando PHP 8.3.1. O Laravel é um framework PHP moderno e elegante que facilita o desenvolvimento de aplicativos web robustos e escaláveis.
+
+## Requisitos
+
+Antes de começar, certifique-se de que o seu ambiente atende aos seguintes requisitos:
+
+- PHP 8.3.1
+- Composer
+- Banco de dados MySQL
+
+## Instalação
+
+Siga estas etapas para configurar e instalar o projeto:
+
+1. Clone o repositório:
+
+    ```bash
+    git clone https://github.com/matheush-a/adoorei-backend.git
+    ```
+    
+2. Instale as dependências
+ 
+    ```bash
+    composer install
+    ```
+    
+3. Configure o arquivo .env
+
+4. Crie a chave da aplicação
+
+    ```bash
+    php artisan key:generate
+    ```
+    
+5. Execute as migrations
+
+    ```bash
+    php artisan migrate
+    ```
+
+6. Execute os seeds
+
+    ```bash
+    php artisan db:seed
+    ```
+
+7. Para executar os testes unitários
+
+    ```bash
+    php artisan test
+    ```
+    
+8. Para executar o servidor da aplicação
+
+    ```bash
+    php artisan serve
+    ```
+    
+Ao executar o servidor da aplicação você deve estar apto(a) a acessar a API através do endereço http://localhost:8000/ ou através de seu IP local preferido, sugestão: http://127.0.0.1:8000/
+
+As requisições podem ser testadas através da seguinte documentação: https://www.postman.com/orange-desert-796995/workspace/adoorei
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
